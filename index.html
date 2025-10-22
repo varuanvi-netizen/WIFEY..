@@ -1,6 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Happy Birthday ANVI...</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
+      padding: 50px;
+      overflow: hidden;
+    }
+    h1 {
+      color: #ff1493;
+      font-size: 3em;
+      animation: pulse 1.5s infinite;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #aaa;
+      animation: bounce 2s infinite;
+    }
+    p {
+      font-size: 1.2em;
+      color: #333;
+    }
+    #countdown {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #ff4500;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff1493;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday, ANVI 😘 🎂</h1>
+  <img src="IMAGE.jpg" alt="Birthday Photo">
+  <p>Wishing you THE NEXT FOUR YEARS filled with joy, laughter, and love!</p>
+  <div id="countdown"></div>
+
+  <!-- Birthday Cake Animation -->
+  <div style="margin-top: 40px;">
+    <img src="https://i.imgur.com/3ZQ3Z4U.gif" alt="Birthday Cake" style="width:150px;">
+  </div>
+
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="https://youtu.be/83GIo0NqdNs?si=poREIsHtKPakZGo4" type="audio/mp4">
+  </audio>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    setInterval(() => {
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+    }, 2000);
+
+    function launchFireworks() {
+      const duration = 5 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 200,
+          angle: 60,
+          spread: 100,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 200,
+          angle: 120,
+          spread: 100,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
+  </script>
+
+  <!-- Countdown Script -->
+  <script>
+    const birthday = new Date("October 23, 2025 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "🎉 It's your birthday today!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `⏳ Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <!-- Surprise Popup -->
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        alert("🎁 Surprise! You're amazing BABE..LOVE YOU,,Its not to impress you this is how I show  love 🙂 — Happy Birthday!");
+      }, 1500);
+    };
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
   <title>Birthday Quiz</title>
 </head>
 <body>
@@ -11,13 +152,6 @@
     <p id="quiz-feedback"></p>
     <p id="quiz-score">Score: 0</p>
   </div>
-  <!-- Surprise Popup -->
-  <script>
-    window.onload = () => {
-      setTimeout(() => {
-        alert("🎁 Surprise! You're amazing BABE..LOVE YOU,,Its not to impress you this is how I show  love 🙂 — Happy Birthday!");
-      }, 1500);
-    };
 
   <script>
     const quiz = [
@@ -89,3 +223,4 @@
   </script>
 </body>
 </html>
+
