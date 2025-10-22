@@ -1,27 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday VARUN!</title>
+  <title>Happy Birthday ANVI!</title>
   <style>
     body {
       text-align: center;
       font-family: 'Segoe UI', sans-serif;
       background-color: #fff0f5;
       padding: 50px;
+      animation: fadeIn 2s ease-in;
     }
     img {
       max-width: 300px;
       border-radius: 15px;
       box-shadow: 0 0 10px #aaa;
+      animation: bounce 2s infinite;
     }
     h1 {
       color: #ff1493;
+      font-size: 2.5em;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Happy Birthday, ANVITHA P REDDY! 🎂</h1>
+  <h1>🎉 Happy Birthday, ANVI! 🎂</h1>
   <img src="varun.jpg" alt="Birthday Photo">
   <p>Wishing you a day filled with joy, laughter, and cake!</p>
+
+  <!-- Confetti animation -->
+  <canvas id="confetti"></canvas>
+
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Simple confetti animation
+    const canvas = document.getElementById('confetti');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+    const confetti = Array.from({length: 100}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 6 + 4,
+      d: Math.random() * 10 + 5,
+      color: `hsl(${Math.random() * 360}, 100%, 50%)`
+    }));
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach(c => {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+        ctx.fillStyle = c.color;
+        ctx.fill();
+        c.y += c.d * 0.1;
+        if (c.y > canvas.height) c.y = 0;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
 </body>
 </html>
