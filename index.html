@@ -1,33 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Anvi!</title>
+  <title>Happy Birthday VARUN!</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
       text-align: center;
-      overflow-x: hidden;
+      padding: 30px;
     }
     h1 {
       color: #ff1493;
       font-size: 3em;
-      margin-top: 30px;
       animation: pulse 1.5s infinite;
     }
     img {
-      max-width: 250px;
+      width: 250px;
       border-radius: 15px;
       box-shadow: 0 0 15px #aaa;
       animation: bounce 2s infinite;
-    }
-    #countdown {
-      font-size: 1.5em;
-      color: #ff4500;
-      margin: 20px 0;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
@@ -51,10 +42,9 @@
   </style>
 </head>
 <body>
-  <h1>🎉 Happy Birthday, ANVIIIIII😘! 🎂</h1>
-  <img src="IMAGE.jpg" alt="Birthday Photo">
-  <p>WISHING YOUR NEXT FOUR YEARS  FILLED WITH LOT OF JOY ,LAUGHER AND LOVE!</p>
-  <div id="countdown"></div>
+  <h1>🎉 Happy Birthday, VARUN! 🎂</h1>
+  <img src="varun.jpg" alt="Birthday Photo">
+  <p>Wishing you a day filled with joy, laughter, and cake!</p>
 
   <!-- Music -->
   <audio autoplay loop>
@@ -69,25 +59,6 @@
     }, 2000);
   </script>
 
-  <!-- Countdown -->
-  <script>
-    const birthday = new Date("October 23, 2025 00:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = birthday - now;
-      if (distance < 0) {
-        countdownEl.innerHTML = "🎉 It's your birthday today!";
-        return;
-      }
-      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((distance % (1000 * 60)) / 1000);
-      countdownEl.innerHTML = `⏳ Countdown: ${d}d ${h}h ${m}m ${s}s`;
-    }, 1000);
-  </script>
-
   <!-- Quiz Game -->
   <h2>🧠 Birthday Quiz Challenge</h2>
   <div id="quiz-box">
@@ -100,29 +71,29 @@
   <script>
     const quiz = [
       {
-      question: "WHAT SMALL THING I DO THAT ALWAYS MAKE YOU FEEL LOVED?",
-      options: ["CARING", "ANNOY", "ROMANTIC", "ALL OF THE ABOVE"],
-      answer: 4
+        question: "What color is traditionally associated with birthdays?",
+        options: ["Blue", "Pink", "Red", "Gold"],
+        answer: 3
       },
       {
-      question: "WHATS YOUR FAVORITE WAY WE SPEND TIME TOGETHER?",
-      options: ["LISTENING SONGS", "COOKING", "TRECKING", "SHARING TRASH TALKS","NONE OF THE ABOVE"],
-      answer: 1,2,3,4,5
+        question: "Which dessert is most common at birthday parties?",
+        options: ["Ice Cream", "Cake", "Cookies", "Donuts"],
+        answer: 1
       },
       {
-      question: "WHAT IS YOUR FAVORITE TYPE OF KISS ?",
-      options: ["ON THE NECK", "ON THE FOREHEAD", "ON THE LIPS", "ON CHEEKS"],
-      answer: 1,2,3
+        question: "What do people usually do before blowing out candles?",
+        options: ["Sing a song", "Make a wish", "Eat cake", "Open gifts"],
+        answer: 1
       },
       {
-      question: "ANVI THINK WE R GOING ON A DATE WHERE WOULD YOU SUGGEST?",
-      options: ["BEACH", "HOTEL", "CAFE", "TEMPLE","THEATRE"],
-      answer: 2,3,4
+        question: "Which animal is often used in birthday piñatas?",
+        options: ["Horse", "Dog", "Unicorn", "Elephant"],
+        answer: 2
       },
       {
-      question: "What’s the best gift that you could expect HONEY?",
-      options: ["Chocolate", "kiss", "Love", "Surprise"],
-      answer: 1,2,3,4
+        question: "What’s the best gift for VARUN?",
+        options: ["Chocolate", "Laptop", "Love", "Surprise"],
+        answer: 3
       }
     ];
 
@@ -147,10 +118,9 @@
       const feedback = document.getElementById("quiz-feedback");
       if (selected === correct) {
         score++;
-        feedback.textContent = "✅ Correct!LOVE YOU  HONEY😘!";
+        feedback.textContent = "✅ Correct!";
       } else {
-        const funny = ["Oops! Try again!", "Nope! That was a trap!", "Haha, not quite!", "Wrong... but you're still awesome!"];
-        feedback.textContent = funny[Math.floor(Math.random() * funny.length)];
+        feedback.textContent = "❌ Wrong!";
       }
       document.getElementById("quiz-score").textContent = "Score: " + score;
       current++;
