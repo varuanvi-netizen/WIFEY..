@@ -1,47 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Happy Birthday ANVI...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Anvi!</title>
   <style>
     body {
-      text-align: center;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
-      padding: 50px;
-      overflow: hidden;
+      text-align: center;
+      overflow-x: hidden;
     }
     h1 {
       color: #ff1493;
       font-size: 3em;
+      margin-top: 30px;
       animation: pulse 1.5s infinite;
     }
     img {
-      max-width: 300px;
+      max-width: 250px;
       border-radius: 15px;
       box-shadow: 0 0 15px #aaa;
       animation: bounce 2s infinite;
     }
-    p {
-      font-size: 1.2em;
-      color: #333;
-    }
     #countdown {
       font-size: 1.5em;
-      margin-top: 20px;
       color: #ff4500;
-    }
-    button {
-      margin-top: 30px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #ff1493;
+      margin: 20px 0;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
@@ -52,22 +38,27 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>🎉 Happy Birthday, ANVI 😘 🎂</h1>
+  <h1>🎉 Happy Birthday, ANVIIIIII😘! 🎂</h1>
   <img src="IMAGE.jpg" alt="Birthday Photo">
-  <p>Wishing you THE NEXT FOUR YEARS filled with joy, laughter, and love!</p>
+  <p>WISHING YOUR NEXT FOUR YEARS  FILLED WITH LOT OF JOY ,LAUGHER AND LOVE!</p>
   <div id="countdown"></div>
-
-  <!-- Birthday Cake Animation -->
-  <div style="margin-top: 40px;">
-    <img src="https://i.imgur.com/3ZQ3Z4U.gif" alt="Birthday Cake" style="width:150px;">
-  </div>
 
   <!-- Music -->
   <audio autoplay loop>
-    <source src="https://youtu.be/83GIo0NqdNs?si=poREIsHtKPakZGo4" type="audio/mp4">
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Confetti -->
@@ -76,76 +67,29 @@
     setInterval(() => {
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
     }, 2000);
-
-    function launchFireworks() {
-      const duration = 5 * 1000;
-      const end = Date.now() + duration;
-
-      (function frame() {
-        confetti({
-          particleCount: 200,
-          angle: 60,
-          spread: 100,
-          origin: { x: 0 }
-        });
-        confetti({
-          particleCount: 200,
-          angle: 120,
-          spread: 100,
-          origin: { x: 1 }
-        });
-
-        if (Date.now() < end) {
-          requestAnimationFrame(frame);
-        }
-      })();
-    }
   </script>
 
-  <!-- Countdown Script -->
+  <!-- Countdown -->
   <script>
     const birthday = new Date("October 23, 2025 00:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
-
-    const updateCountdown = () => {
+    setInterval(() => {
       const now = new Date().getTime();
       const distance = birthday - now;
-
       if (distance < 0) {
         countdownEl.innerHTML = "🎉 It's your birthday today!";
         return;
       }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownEl.innerHTML = `⏳ Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    };
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `⏳ Countdown: ${d}d ${h}h ${m}m ${s}s`;
+    }, 1000);
   </script>
 
-  <!-- Surprise Popup -->
-  <script>
-    window.onload = () => {
-      setTimeout(() => {
-        alert("🎁 Surprise! You're amazing BABE..LOVE YOU,,Its not to impress you this is how I show  love 🙂 — Happy Birthday!");
-      }, 1500);
-    };
-  </script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Birthday Quiz</title>
-</head>
-<body>
-  <h1>🎉 Happy Birthday ANVIIIII😘! 🎂</h1>
+  <!-- Quiz Game -->
+  <h2>🧠 Birthday Quiz Challenge</h2>
   <div id="quiz-box">
     <p id="quiz-question"></p>
     <div id="quiz-options"></div>
@@ -156,15 +100,15 @@
   <script>
     const quiz = [
       {
-        question: "WHAT SMALL THING I DO THAT ALWAYS MAKE YOU FEEL LOVED?",
-        options: ["CARING", "ANNOY", "ROMANTIC", "ALL OF THE ABOVE"],
-        answer: 4
+      question: "WHAT SMALL THING I DO THAT ALWAYS MAKE YOU FEEL LOVED?",
+      options: ["CARING", "ANNOY", "ROMANTIC", "ALL OF THE ABOVE"],
+      answer: 4
       },
       {
-        question: "WHATS YOUR FAVORITE WAY WE SPEND TIME TOGETHER?",
-        options: ["LISTENING SONGS", "COOKING", "TRECKING", "SHARING TRASH TALKS","NONE OF THE ABOVE"],
-        answer: 1,2,3,4,5
-      }
+      question: "WHATS YOUR FAVORITE WAY WE SPEND TIME TOGETHER?",
+      options: ["LISTENING SONGS", "COOKING", "TRECKING", "SHARING TRASH TALKS","NONE OF THE ABOVE"],
+      answer: 1,2,3,4,5
+      },
       {
       question: "WHAT IS YOUR FAVORITE TYPE OF KISS ?",
       options: ["ON THE NECK", "ON THE FOREHEAD", "ON THE LIPS", "ON CHEEKS"],
@@ -203,9 +147,10 @@
       const feedback = document.getElementById("quiz-feedback");
       if (selected === correct) {
         score++;
-        feedback.textContent = "✅ Correct!,LOVE YOU  HONEY😘!";
+        feedback.textContent = "✅ Correct!LOVE YOU  HONEY😘!";
       } else {
-        feedback.textContent = "❌ Wrong!still love you😘";
+        const funny = ["Oops! Try again!", "Nope! That was a trap!", "Haha, not quite!", "Wrong... but you're still awesome!"];
+        feedback.textContent = funny[Math.floor(Math.random() * funny.length)];
       }
       document.getElementById("quiz-score").textContent = "Score: " + score;
       current++;
@@ -215,7 +160,9 @@
           loadQuiz();
         }, 1000);
       } else {
-        document.getElementById("quiz-box").innerHTML = `<h3>🎉 Quiz Complete!</h3><p>Your final score: ${score}/${quiz.length}</p>`;
+        setTimeout(() => {
+          document.getElementById("quiz-box").innerHTML = `<h3>🎉 Quiz Complete!</h3><p>Your final score: ${score}/${quiz.length}</p>`;
+        }, 1000);
       }
     }
 
@@ -223,4 +170,3 @@
   </script>
 </body>
 </html>
-
