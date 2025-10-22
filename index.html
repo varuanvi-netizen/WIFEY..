@@ -142,3 +142,88 @@
   </script>
 </body>
 </html>
+<h2>🧠 Birthday Quiz Challenge</h2>
+<div id="quiz-box" style="max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc;">
+  <p id="quiz-question" style="font-weight: bold;"></p>
+  <div id="quiz-options"></div>
+  <p id="quiz-feedback" style="color: #ff1493; font-weight: bold;"></p>
+  <p id="quiz-score">Score: 0</p>
+</div>
+
+<script>
+  const quiz = [
+    {
+      question: "WHAT SMALL THING I DO THAT ALWAYS MAKE YOU FEEL LOVED?",
+      options: ["CARING", "ANNOY", "ROMANTIC", "ALL OF THE ABOVE"],
+      answer: 4
+    },
+    {
+      question: "WHATS YOUR FAVORITE WAY WE SPEND TIME TOGETHER?",
+      options: ["LISTENING SONGS", "COOKING", "TRECKING", "SHARING TRASH TALKS","NONE OF THE ABOVE"],
+      answer: 1,2,3,4,5
+    },
+    {
+      question: "WHAT IS YOUR FAVORITE TYPE OF KISS ?",
+      options: ["ON THE NECK", "ON THE FOREHEAD", "ON THE LIPS", "ON CHEEKS"],
+      answer: 1,2,3
+    },
+    {
+      question: "ANVI THINK WE R GOING ON A DATE WHERE WOULD YOU SUGGEST?",
+      options: ["BEACH", "HOTEL", "CAFE", "TEMPLE","THEATRE"],
+      answer: 2,3,4
+    },
+    {
+      question: "What’s the best gift that you could expect HONEY?",
+      options: ["Chocolate", "kiss", "Love", "Surprise"],
+      answer: 1,2,3,4
+    }
+  ];
+
+  let current = 0;
+  let score = 0;
+
+  function loadQuiz() {
+    const q = quiz[current];
+    document.getElementById("quiz-question").textContent = q.question;
+    const optionsDiv = document.getElementById("quiz-options");
+    optionsDiv.innerHTML = "";
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement("button");
+      btn.textContent = opt;
+      btn.style.margin = "5px";
+      btn.style.padding = "10px 15px";
+      btn.style.borderRadius = "6px";
+      btn.style.border = "none";
+      btn.style.backgroundColor = "#ff69b4";
+      btn.style.color = "white";
+      btn.onclick = () => checkAnswer(i);
+      optionsDiv.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(selected) {
+    const correct = quiz[current].answer;
+    const feedback = document.getElementById("quiz-feedback");
+    if (selected === correct) {
+      score++;
+      feedback.textContent = "✅ Correct! LOVE YOU BANGARAM😘!";
+    } else {
+      const funny = ["Oops! Try again!", "Nope! That was a trap!", "Haha, not quite!", "Wrong... but you're still awesome!"];
+      feedback.textContent = funny[Math.floor(Math.random() * funny.length)];
+    }
+    document.getElementById("quiz-score").textContent = "Score: " + score;
+    current++;
+    if (current < quiz.length) {
+      setTimeout(() => {
+        feedback.textContent = "";
+        loadQuiz();
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        document.getElementById("quiz-box").innerHTML = `<h3>🎉 Quiz Complete!</h3><p>Your final score: ${score}/${quiz.length}</p>`;
+      }, 1000);
+    }
+  }
+
+  loadQuiz();
+</script>
